@@ -21,6 +21,6 @@ Also be sure to install the recommended vscode extension.
 
 ## Noteworthy files
 
-- [Schema Definition](./data/schema.graphql)
-- [Schema Resolvers](./src/schema.ts)
-- [Relay Environment](./src/RelayEnvironment.ts)
+- [Schema Definition](./data/schema.graphql): the schema
+- [Schema Resolvers](./src/schema.ts): the implementations of schema fields
+- [Relay Environment](./src/RelayEnvironment.ts): where Relay sends requests to the local GraphQL executor
