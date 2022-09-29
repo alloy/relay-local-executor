@@ -21,5 +21,6 @@ Also be sure to install the recommended vscode extension.
 
 ## Noteworthy files
 
-- [Schema](./data/schema.graphql)
+- [Schema Definition](./data/schema.graphql)
+- [Schema Resolvers](./src/schema.ts)
 - [Relay Environment](./src/RelayEnvironment.ts)
