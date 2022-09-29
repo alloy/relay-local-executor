@@ -1,11 +1,16 @@
 import typeDefs from "../data/schema.graphql";
 import { makeExecutableSchema } from "@graphql-tools/schema";
 
+function delay(time: number) {
+  return new Promise((resolve) => setTimeout(resolve, time));
+}
+
 export const schema = makeExecutableSchema({
   typeDefs,
   resolvers: {
     Query: {
-      me() {
+      async me() {
+        await delay(1000);
         return {
           id: "user-42",
           name: "Eloy Durán",
@@ -14,12 +19,14 @@ export const schema = makeExecutableSchema({
       },
     },
     Person: {
-      friends(person) {
+      async friends(person) {
+        delay(1000);
         return {
           edges: getFriends(person.id),
         };
       },
-      gamesCollection(person) {
+      async gamesCollection(person) {
+        delay(1000);
         return {
           edges: getGamesCollection(person.id),
         };
