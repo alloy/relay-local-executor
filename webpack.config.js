@@ -28,6 +28,10 @@ module.exports = {
         use: ["source-map-loader"],
         enforce: "pre",
       },
+      {
+        test: /schema\.graphql$/,
+        use: ["@graphql-tools/webpack-loader"],
+      },
     ],
   },
   plugins: [HTMLWebpackPluginConfig],

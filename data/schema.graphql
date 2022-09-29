@@ -1,0 +1,51 @@
+scalar DateTime
+
+type Query {
+  me: Person!
+}
+
+interface Node {
+  id: ID!
+}
+
+type PageInfo {
+  startCursor: String
+  endCursor: String
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+
+type Person implements Node {
+  id: ID!
+  name: String!
+  email: String!
+  gamesCollection: GamesCollectionConnection!
+  friends: FriendsConnection!
+}
+
+type FriendsConnection {
+  edges: [FriendsConnectionEdge!]!
+  pageInfo: PageInfo!
+}
+
+type FriendsConnectionEdge {
+  cursor: String!
+  node: Person!
+  befriendedAt: DateTime!
+}
+
+type GamesCollectionConnection {
+  edges: [GamesCollectionConnectionEdge!]!
+  pageInfo: PageInfo!
+}
+
+type GamesCollectionConnectionEdge {
+  cursor: String!
+  node: Game!
+  addedToCollectionAt: DateTime!
+}
+
+type Game {
+  id: ID!
+  name: String!
+}
